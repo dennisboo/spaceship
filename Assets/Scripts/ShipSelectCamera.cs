@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipSelectCamera : MonoBehaviour
 {
+    public ShipSelector selector;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +18,18 @@ public class ShipSelectCamera : MonoBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(MoveCameraRoutine(10));
+            selector.NextShip();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             StopAllCoroutines();
             StartCoroutine(MoveCameraRoutine(-10));
+            selector.PreviousShip();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            selector.SelectShip();
         }
     }
 
