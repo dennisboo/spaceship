@@ -17,13 +17,13 @@ public class ShipSelectCamera : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             StopAllCoroutines();
-            StartCoroutine(MoveCameraRoutine(10));
+            StartCoroutine(MoveCameraRoutine(-10));
             selector.NextShip();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             StopAllCoroutines();
-            StartCoroutine(MoveCameraRoutine(-10));
+            StartCoroutine(MoveCameraRoutine(10));
             selector.PreviousShip();
         }
 
