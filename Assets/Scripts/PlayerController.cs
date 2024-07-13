@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class PlayerController : NetworkBehaviour
 {
-    public float Speed = 4;
+    public Ship ship;
+    public float speed;
+    public float rotationSpeed;
+
     private Vector3 direction;
-    public float rotationSpeed = 6;
     private Vector3 rDirection;
     public Camera Cam;
+
     public override void OnNetworkSpawn()
     {
         if (!IsOwner) Cam.enabled=false;
+
     }
     // Start is called before the first frame update
     void Start()
@@ -24,28 +28,41 @@ public class PlayerController : NetworkBehaviour
     void Update()
     {
         if (!IsOwner) return;
-        
-        direction = Vector3.zero;
+
+        direction = -ship.transform.forward;
+
         rDirection = Vector3.zero;
+       
+        //PITCH
         if (Input.GetKey(KeyCode.W))
         {
-            direction += transform.forward;
+            rDirection += new Vector3(-rotationSpeed * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            direction += transform.forward * -1;
+            rDirection += new Vector3(rotationSpeed * Time.deltaTime, 0, 0);
         }
+        //ROLL
         if (Input.GetKey(KeyCode.A))
         {
-            //direction -= transform.right;
-            rDirection = new Vector3(0, -rotationSpeed*Time.deltaTime, 0);
+            rDirection += new Vector3(0, 0, -rotationSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            //direction += transform.right;
-            rDirection = new Vector3(0, rotationSpeed*Time.deltaTime, 0);
+            rDirection += new Vector3(0, 0, rotationSpeed * Time.deltaTime);
         }
-        transform.Rotate(rDirection);
-        transform.position += direction * Speed * Time.deltaTime;
+        //YAW
+        if (Input.GetKey(KeyCode.E))
+        {
+            rDirection += new Vector3(0, rotationSpeed * 0.7f * Time.deltaTime, 0);
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            rDirection += new Vector3(0, -rotationSpeed* 0.7f * Time.deltaTime, 0);
+        }
+
+
+        ship.transform.Rotate(rDirection);
+        transform.position += direction * speed * Time.deltaTime;
     }
 }
