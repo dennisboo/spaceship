@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipSelectCamera : MonoBehaviour
 {
+    private bool isMoving;
     public ShipSelector selector;
     // Start is called before the first frame update
     void Start()
@@ -14,13 +15,14 @@ public class ShipSelectCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !isMoving && selector.currentShipSelection < selector.ships.Count)
         {
+            Debug.Log(selector.currentShipSelection);
             StopAllCoroutines();
             StartCoroutine(MoveCameraRoutine(-10));
             selector.NextShip();
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMoving && selector.currentShipSelection > 0)
         {
             StopAllCoroutines();
             StartCoroutine(MoveCameraRoutine(10));
@@ -36,6 +38,7 @@ public class ShipSelectCamera : MonoBehaviour
 
     IEnumerator MoveCameraRoutine(int xMove)
     {
+        isMoving = true;
         Vector3 targetLocation = transform.position;
         targetLocation.x += xMove;
 
@@ -43,6 +46,8 @@ public class ShipSelectCamera : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetLocation, 20 * Time.deltaTime);
             yield return null;
+           
         }
+        isMoving = false;
     }
 }

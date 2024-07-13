@@ -6,7 +6,7 @@ public class ShipSelector : MonoBehaviour
 {
     public List<Ship> ships;
 
-    private int currentShipSelection;
+    public int currentShipSelection{ get; private set; }
 
 
     public void SelectShip()

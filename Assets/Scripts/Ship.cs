@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
+    public string shipName;
     public int maxHealth;
     private int currentHealth;
 
