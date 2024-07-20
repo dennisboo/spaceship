@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5943836146205530947, guid: 4172b720152f668459122e6a93b21f58, type: 3}
       propertyPath: m_Name
-      value: ship4
+      value: triangleshipwithquadgun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -281,7 +281,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 407334558206005371, guid: ae4db26d91865b040a0e4ccc42dd0550, type: 3}
       propertyPath: m_Name
-      value: ship2
+      value: thickshipwithdualgun
       objectReference: {fileID: 0}
     - target: {fileID: 7954452159284591826, guid: ae4db26d91865b040a0e4ccc42dd0550, type: 3}
       propertyPath: m_LocalPosition.x
@@ -354,7 +354,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4032992259793083035, guid: 33ec12505b734764eab92a16e19e3fa5, type: 3}
       propertyPath: m_Name
-      value: ship7
+      value: controllershipwithquadgun
       objectReference: {fileID: 0}
     - target: {fileID: 8495511029148535102, guid: 33ec12505b734764eab92a16e19e3fa5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -570,7 +570,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3968389684752692616, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
       propertyPath: m_Name
-      value: ship5
+      value: thickshipwithquadgun
       objectReference: {fileID: 0}
     - target: {fileID: 4348610028923678514, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1966,7 +1966,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3018375525867443934, guid: c17e48beae3e9dd48a62adb77ba1b6bf, type: 3}
       propertyPath: m_Name
-      value: ship3
+      value: longshipwithquadgun
       objectReference: {fileID: 0}
     - target: {fileID: 8708001954069506891, guid: c17e48beae3e9dd48a62adb77ba1b6bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2340,7 +2340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690023529757083203, guid: e86300a8a2d930b4596ecbe1b44eaebe, type: 3}
       propertyPath: m_Name
-      value: ship6
+      value: wrenchshipwithquadgun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2429,7 +2429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1810791211281529120, guid: f3202556a9b1a21489cdc6238bf9abb3, type: 3}
       propertyPath: m_Name
-      value: ship1
+      value: Longshipwithdualgun
       objectReference: {fileID: 0}
     - target: {fileID: 4458296438279896002, guid: f3202556a9b1a21489cdc6238bf9abb3, type: 3}
       propertyPath: shipName
