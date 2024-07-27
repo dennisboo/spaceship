@@ -223,10 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271ced0313415c94aa44d2af59aa78a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  speed: 0
-  attack: 0
-  handling: 0
+  shipName: smallshipwithdualgun
+  maxHealth: 30
+  speed: 90
+  attack: 30
+  handling: 50
 --- !u!1 &8195701606801469887
 GameObject:
   m_ObjectHideFlags: 0

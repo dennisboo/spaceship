@@ -22,8 +22,8 @@ public class Ship : MonoBehaviour
     {
         while (true)
         {
-            transform.position += transform.forward;
-            yield return new WaitForSeconds(0.1f);
+            transform.position += transform.forward*Time.deltaTime*5;
+            yield return null;
         }
     }
 
