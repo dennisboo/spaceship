@@ -13,10 +13,26 @@ public class PlayerController : NetworkBehaviour
     private Vector3 direction;
     private Vector3 rDirection;
     public Camera Cam;
+    public GameObject Projectile;
+    public Transform[] muzzles;
+    public float ShootDelay;
+    private bool CanShoot = true;
+    private int CannonIndex;
+    public bool IsHoldingDownShoot = false;
+    public float projectileSpeed = 5;
 
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner) Cam.enabled=false;
+        if (!IsOwner)
+        {
+           
+            Cam.enabled = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
     }
     // Start is called before the first frame update
@@ -71,8 +87,53 @@ public class PlayerController : NetworkBehaviour
     {
         Vector3 NewRotation = context.ReadValue<Vector3>();
         rDirection = NewRotation;
+        
+
+
+    }
+    public void OnShoot(InputAction.CallbackContext Context)
+    {
+        if (Context.performed)
+        {
+            IsHoldingDownShoot = true;
+            StartCoroutine(ShootCouroutine());
+            
+        }
+        else if (Context.canceled)
+        {
+            IsHoldingDownShoot = false;
+        }
+
+    }
+
+    IEnumerator ShootCouroutine()
+    {
+        while (IsHoldingDownShoot)
+        {
+            Shoot();
+            yield return new WaitForSeconds(ShootDelay);
+        }
+       
+    }
+    public void Shoot()
+    {
+        Transform shootspot = muzzles[CannonIndex];
+        
+        GameObject Instance = Instantiate(Projectile, shootspot.position, shootspot.rotation);
+        Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(), GetComponentInChildren<Collider>());
+        Instance.GetComponent<Rigidbody>().AddForce(shootspot.forward * projectileSpeed, ForceMode.VelocityChange);
+        CannonIndex += 1;
+        if (CannonIndex >= muzzles.Length)
+        {
+            CannonIndex = 0;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
         Debug.Log("sds");
-
-
+        if(collision.collider.CompareTag("Floor"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

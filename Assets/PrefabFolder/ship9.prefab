@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6808870809495756788}
   m_Layer: 0
   m_Name: ship9
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

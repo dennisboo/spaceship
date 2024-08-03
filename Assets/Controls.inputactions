@@ -50,7 +50,7 @@
                 {
                     "name": "up",
                     "id": "73932892-9f58-46f6-b7e7-a717b74ee65e",
-                    "path": "<Keyboard>/w",
+                    "path": "<Mouse>/delta/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -61,7 +61,7 @@
                 {
                     "name": "down",
                     "id": "87558398-5a19-4e0d-8f17-d100f809da36",
-                    "path": "<Keyboard>/s",
+                    "path": "<Mouse>/delta/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -72,7 +72,7 @@
                 {
                     "name": "left",
                     "id": "b79ffd57-09c0-40bc-a391-66e5ae58604f",
-                    "path": "<Keyboard>/a",
+                    "path": "<Mouse>/delta/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -83,29 +83,7 @@
                 {
                     "name": "right",
                     "id": "fe0ecb03-9fa5-49df-9273-78548f97d927",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "forward",
-                    "id": "6b8127d2-dd58-4d63-929e-1f761341760c",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "backward",
-                    "id": "6ae249e0-d7a7-4989-b3ad-bb3c6c4d7e9b",
-                    "path": "<Keyboard>/q",
+                    "path": "<Mouse>/delta/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

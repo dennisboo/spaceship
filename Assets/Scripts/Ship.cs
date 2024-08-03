@@ -39,4 +39,12 @@ public class Ship : MonoBehaviour
     {
         
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Floor"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
+
