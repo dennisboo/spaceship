@@ -86,7 +86,7 @@ public class PlayerController : NetworkBehaviour
     }
     public void OnRotation(InputAction.CallbackContext context)
     {
-        if(!isOwner)
+        if(!IsOwner)
         {
             return;
         }
@@ -98,7 +98,7 @@ public class PlayerController : NetworkBehaviour
     }
     public void OnShoot(InputAction.CallbackContext Context)
     {
-        if(!isOwner)
+        if(!IsOwner)
         {
             return;
         }
@@ -119,10 +119,7 @@ public class PlayerController : NetworkBehaviour
 
     IEnumerator ShootCouroutine()
     {
-        if(!isOwner)
-        {
-            return;
-        }
+        
         while (IsHoldingDownShoot)
         {
             Shoot();
@@ -132,7 +129,7 @@ public class PlayerController : NetworkBehaviour
     }
     public void Shoot()
     {
-        if(!isOwner)
+        if(!IsOwner)
         {
             return;
         }
@@ -149,7 +146,7 @@ public class PlayerController : NetworkBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(!isOwner)
+        if(!IsOwner)
         {
             return;
         }
