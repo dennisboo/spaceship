@@ -32,6 +32,7 @@ public class PlayerController : NetworkBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
         }
 
     }
@@ -44,7 +45,7 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner) return;
+    //    if (!IsOwner) return;
 
         direction = ship.transform.forward;
 
