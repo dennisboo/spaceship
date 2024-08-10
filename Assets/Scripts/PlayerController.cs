@@ -81,7 +81,7 @@ public class PlayerController : NetworkBehaviour
 
 
         ship.transform.Rotate(RotationVector);
-        transform.position += direction * speed * Time.deltaTime;
+        transform.Translate(direction*speed*Time.deltaTime);
         
     }
     public void OnRotation(InputAction.CallbackContext context)
