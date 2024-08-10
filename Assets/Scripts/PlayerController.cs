@@ -45,7 +45,7 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-    //    if (!IsOwner) return;
+        if (!IsOwner) return;
 
         direction = ship.transform.forward;
 
@@ -86,6 +86,10 @@ public class PlayerController : NetworkBehaviour
     }
     public void OnRotation(InputAction.CallbackContext context)
     {
+        if(!isOwner)
+        {
+            return;
+        }
         Vector3 NewRotation = context.ReadValue<Vector3>();
         rDirection = NewRotation;
         
@@ -94,10 +98,16 @@ public class PlayerController : NetworkBehaviour
     }
     public void OnShoot(InputAction.CallbackContext Context)
     {
+        if(!isOwner)
+        {
+            return;
+        }
+        
         if (Context.performed)
         {
             IsHoldingDownShoot = true;
             StartCoroutine(ShootCouroutine());
+
             
         }
         else if (Context.canceled)
@@ -109,6 +119,10 @@ public class PlayerController : NetworkBehaviour
 
     IEnumerator ShootCouroutine()
     {
+        if(!isOwner)
+        {
+            return;
+        }
         while (IsHoldingDownShoot)
         {
             Shoot();
@@ -118,6 +132,10 @@ public class PlayerController : NetworkBehaviour
     }
     public void Shoot()
     {
+        if(!isOwner)
+        {
+            return;
+        }
         Transform shootspot = muzzles[CannonIndex];
         
         GameObject Instance = Instantiate(Projectile, shootspot.position, shootspot.rotation);
@@ -131,6 +149,10 @@ public class PlayerController : NetworkBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if(!isOwner)
+        {
+            return;
+        }
         Debug.Log("sds");
         if(collision.collider.CompareTag("Floor"))
         {
