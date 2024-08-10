@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 926621987
+  GlobalObjectIdHash: 1355291024
   InScenePlacedSourceGlobalObjectIdHash: 1350943207
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -75,7 +75,7 @@ MonoBehaviour:
   ship: {fileID: 8295863101156470204}
   speed: 30
   rotationSpeed: 10
-  Cam: {fileID: 1573822865528326453}
+  Cam: {fileID: 3842149166195390078}
   Projectile: {fileID: 2634731728465599857, guid: 45b40d3e42aa323438c725e80817c443, type: 3}
   muzzles:
   - {fileID: 1312599793730136573}
@@ -390,14 +390,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9147158264051878449, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
   m_PrefabInstance: {fileID: 7838076948484875212}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &1573822865528326453 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8723796809109629689, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
-  m_PrefabInstance: {fileID: 7838076948484875212}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2797941550647888156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5337390565433682640, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
+  m_PrefabInstance: {fileID: 7838076948484875212}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &3842149166195390078 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6454924059686589874, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
   m_PrefabInstance: {fileID: 7838076948484875212}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &3933089878727577114 stripped
