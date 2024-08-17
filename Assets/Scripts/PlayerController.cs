@@ -27,6 +27,7 @@ public class PlayerController : NetworkBehaviour
         {
            
             Cam.enabled = false;
+            
         }
         else
         {
@@ -49,39 +50,13 @@ public class PlayerController : NetworkBehaviour
 
         direction = ship.transform.forward;
 
-        Vector3 RotationVector = new Vector3(-rDirection.y,rDirection.x,-rDirection.z) * rotationSpeed * Time.deltaTime;
-       
-        //PITCH
-      //  if (Input.GetKey(KeyCode.W))
-        //{
-           // rDirection += new Vector3(-rotationSpeed * Time.deltaTime, 0, 0);
-       // }
-///if (Input.GetKey(KeyCode.S))
-       // {
-            //rDirection += new Vector3(rotationSpeed * Time.deltaTime, 0, 0);
-        //}
-        //ROLL
-       // if (Input.GetKey(KeyCode.A))
-       // {
-          //  rDirection += new Vector3(0, 0, -rotationSpeed * Time.deltaTime);
-      //  }
-      //  if (Input.GetKey(KeyCode.D))
-      //  {
-       //     rDirection += new Vector3(0, 0, rotationSpeed * Time.deltaTime);
-       // }
-        //YAW
-       // if (Input.GetKey(KeyCode.E))
-      //  {
-        //    rDirection += new Vector3(0, rotationSpeed * 0.7f * Time.deltaTime, 0);
-       // }
-      //  if (Input.GetKey(KeyCode.Q))
-       // {
-       //     rDirection += new Vector3(0, -rotationSpeed* 0.7f * Time.deltaTime, 0);
-       // }
+        Vector3 HorizontalRotationVector = new Vector3(0,rDirection.x,0) * rotationSpeed * Time.deltaTime;
+        Vector3 VerticalRotationVector = new Vector3(-rDirection.y,0,0) * rotationSpeed * Time.deltaTime;
 
-
-        ship.transform.Rotate(RotationVector);
-        transform.Translate(direction*speed*Time.deltaTime);
+        ship.transform.Rotate(VerticalRotationVector);
+        ship.transform.Rotate(HorizontalRotationVector, Space.World);
+        ship.transform.Translate(direction*speed*Time.deltaTime);
+        //s
         
     }
     public void OnRotation(InputAction.CallbackContext context)
