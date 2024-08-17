@@ -115,8 +115,8 @@ public class PlayerController : NetworkBehaviour
         Transform shootspot = muzzles[CannonIndex];
         
         GameObject Instance = Instantiate(Projectile, shootspot.position, shootspot.rotation);
-        var InstanceNetworkObject = Instance.GetComponent<NetworkObject>();
-        InstanceNetworkObject.Spawn();
+       var InstanceNetworkObject = Instance.GetComponent<NetworkObject>();
+       InstanceNetworkObject.Spawn();
         Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(), GetComponentInChildren<Collider>());
         Instance.GetComponent<Rigidbody>().AddForce(shootspot.forward * projectileSpeed, ForceMode.VelocityChange);
         CannonIndex += 1;
