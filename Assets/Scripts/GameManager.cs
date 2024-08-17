@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+using Unity.Netcode;
+
+public class GameManager : NetworkBehaviour
+
 {
+    public GameObject projectile;
     public static GameManager instance { get; private set; }
 
     void Awake()
@@ -23,4 +27,14 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    [Rpc(SendTo.Server)]
+    public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, Vector3 projectileVector)
+    {
+        GameObject Instance = Instantiate(projectile, pos, rot);
+        var InstanceNetworkObject = Instance.GetComponent<NetworkObject>();
+       InstanceNetworkObject.Spawn();
+      //  Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(), GetComponentInChildren<Collider>());
+        Instance.GetComponent<Rigidbody>().AddForce(projectileVector, ForceMode.VelocityChange);
+    }
+
 }
