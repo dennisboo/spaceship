@@ -48,14 +48,14 @@ public class PlayerController : NetworkBehaviour
     {
         if (!IsOwner) return;
 
-        direction = ship.transform.forward;
+        direction = transform.forward;
 
         Vector3 HorizontalRotationVector = new Vector3(0,rDirection.x,0) * rotationSpeed * Time.deltaTime;
         Vector3 VerticalRotationVector = new Vector3(-rDirection.y,0,0) * rotationSpeed * Time.deltaTime;
 
-        ship.transform.Rotate(VerticalRotationVector);
-        ship.transform.Rotate(HorizontalRotationVector, Space.World);
-        ship.transform.Translate(direction*speed*Time.deltaTime);
+        transform.Rotate(VerticalRotationVector);
+        transform.Rotate(HorizontalRotationVector, Space.World);
+        transform.Translate(direction*speed*Time.deltaTime,Space.World);
         //s
         
     }
@@ -81,8 +81,10 @@ public class PlayerController : NetworkBehaviour
         if (Context.performed)
         {
             IsHoldingDownShoot = true;
-            StartCoroutine(ShootCouroutine());
-
+            if(CanShoot){
+                StartCoroutine(ShootCouroutine());
+            }
+           
             
         }
         else if (Context.canceled)
@@ -97,8 +99,10 @@ public class PlayerController : NetworkBehaviour
         
         while (IsHoldingDownShoot)
         {
+            CanShoot=false;
             Shoot();
             yield return new WaitForSeconds(ShootDelay);
+            CanShoot=true;
         }
        
     }
@@ -111,6 +115,8 @@ public class PlayerController : NetworkBehaviour
         Transform shootspot = muzzles[CannonIndex];
         
         GameObject Instance = Instantiate(Projectile, shootspot.position, shootspot.rotation);
+        var InstanceNetworkObject = Instance.GetComponent<NetworkObject>();
+        InstanceNetworkObject.Spawn();
         Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(), GetComponentInChildren<Collider>());
         Instance.GetComponent<Rigidbody>().AddForce(shootspot.forward * projectileSpeed, ForceMode.VelocityChange);
         CannonIndex += 1;
