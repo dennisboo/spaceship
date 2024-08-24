@@ -115,7 +115,7 @@ public class PlayerController : NetworkBehaviour
         }
         Transform shootspot = muzzles[CannonIndex];
         
-        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,shootspot.forward*projectileSpeed,(int)SteamClient.SteamId.Value);
+        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,shootspot.forward*projectileSpeed,new NetworkObjectReference (gameObject));
        
         CannonIndex += 1;
         if (CannonIndex >= muzzles.Length)
@@ -132,6 +132,7 @@ public class PlayerController : NetworkBehaviour
         Debug.Log("sds");
         if(collision.collider.CompareTag("Floor"))
         {
+            Debug.Log("asg");
             Destroy(gameObject);
         }
     }
