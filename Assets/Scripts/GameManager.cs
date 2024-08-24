@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 using Unity.Netcode;
 
 public class GameManager : NetworkBehaviour
@@ -31,10 +32,15 @@ public class GameManager : NetworkBehaviour
     public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, Vector3 projectileVector)
     {
         GameObject Instance = Instantiate(projectile, pos, rot);
+        if(IsOwner)
+        {
+            Instance.GetComponent<Collider>().enabled=false;
+        }
         var InstanceNetworkObject = Instance.GetComponent<NetworkObject>();
        InstanceNetworkObject.Spawn();
       //  Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(), GetComponentInChildren<Collider>());
         Instance.GetComponent<Rigidbody>().AddForce(projectileVector, ForceMode.VelocityChange);
+
     }
 
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7384905561093326828}
   - component: {fileID: 2410892851147074619}
   - component: {fileID: 5760027230346514809}
+  - component: {fileID: 5973709347108554205}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -127,6 +128,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &5973709347108554205
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2634731728465599857}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8502309055247942098
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +160,6 @@ GameObject:
   - component: {fileID: 8652532543129144678}
   - component: {fileID: 5145818276861029851}
   - component: {fileID: 6932053897869670487}
-  - component: {fileID: 7254406585064439973}
   - component: {fileID: 1135370221589898047}
   m_Layer: 0
   m_Name: Graphics
@@ -157,7 +178,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.20726673, y: 0.17603602, z: 0.17936496}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4988759742254762444}
@@ -212,27 +233,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7254406585064439973
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502309055247942098}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5000001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &1135370221589898047
 TrailRenderer:
   serializedVersion: 3
@@ -276,7 +276,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.3
-  m_PreviewTimeScale: 0
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
