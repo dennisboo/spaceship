@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Steamworks;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -114,7 +115,7 @@ public class PlayerController : NetworkBehaviour
         }
         Transform shootspot = muzzles[CannonIndex];
         
-        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,shootspot.forward*projectileSpeed);
+        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,shootspot.forward*projectileSpeed,(int)SteamClient.SteamId.Value);
        
         CannonIndex += 1;
         if (CannonIndex >= muzzles.Length)

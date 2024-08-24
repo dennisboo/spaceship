@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 using Unity.Netcode;
@@ -10,6 +11,9 @@ public class GameManager : NetworkBehaviour
 {
     public GameObject projectile;
     public static GameManager instance { get; private set; }
+    public Dictionary<int,PlayerInput> Players = new Dictionary <int,PlayerInput>();
+    
+    
 
     void Awake()
     {
@@ -29,7 +33,7 @@ public class GameManager : NetworkBehaviour
         
     }
     [Rpc(SendTo.Server)]
-    public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, Vector3 projectileVector)
+    public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, Vector3 projectileVector,int ID)
     {
         GameObject Instance = Instantiate(projectile, pos, rot);
         if(IsOwner)
@@ -41,6 +45,10 @@ public class GameManager : NetworkBehaviour
       //  Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(), GetComponentInChildren<Collider>());
         Instance.GetComponent<Rigidbody>().AddForce(projectileVector, ForceMode.VelocityChange);
 
+    }
+    public void ClientEntered(ulong clientId)
+    {
+        Debug.Log("sfs");
     }
 
 }
