@@ -47,6 +47,12 @@ public class GameManager : NetworkBehaviour
         Instance.GetComponent<Rigidbody>().AddForce(projectileVector, ForceMode.VelocityChange);
 
     }
+    [Rpc(SendTo.NotServer)]
+    public void DisableCollisionRPC(NetworkObjectReference PlayerObject)
+    {
+
+
+    }
     public void ClientEntered(ulong clientId)
     {
         Debug.Log("sfs");

@@ -21,6 +21,7 @@ public class PlayerController : NetworkBehaviour
     private int CannonIndex;
     public bool IsHoldingDownShoot = false;
     public float projectileSpeed = 5;
+    public bool CanMove = false;
 
     public override void OnNetworkSpawn()
     {
@@ -32,11 +33,15 @@ public class PlayerController : NetworkBehaviour
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
             transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
         }
 
+    }
+    public void ActivatePlayer()
+    {
+        CanMove = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     // Start is called before the first frame update
     void Start()
@@ -47,7 +52,7 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner) return;
+        if (!IsOwner || !CanMove) return;
 
         direction = transform.forward;
 
@@ -62,7 +67,7 @@ public class PlayerController : NetworkBehaviour
     }
     public void OnRotation(InputAction.CallbackContext context)
     {
-        if(!IsOwner)
+        if(!IsOwner || !CanMove)
         {
             return;
         }
@@ -74,7 +79,7 @@ public class PlayerController : NetworkBehaviour
     }
     public void OnShoot(InputAction.CallbackContext Context)
     {
-        if(!IsOwner)
+        if(!IsOwner || !CanMove)
         {
             return;
         }
@@ -109,7 +114,7 @@ public class PlayerController : NetworkBehaviour
     }
     public void Shoot()
     {
-        if(!IsOwner)
+        if(!IsOwner || !CanMove)
         {
             return;
         }
@@ -125,7 +130,7 @@ public class PlayerController : NetworkBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(!IsOwner)
+        if(!IsOwner || !CanMove)
         {
             return;
         }
