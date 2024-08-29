@@ -32,6 +32,7 @@ public class PlayerController : NetworkBehaviour
         {
             button.SetActive(false);
             Cam.enabled = false;
+            GetComponent<AudioListener>().enabled = false;
         }
         else
         {
