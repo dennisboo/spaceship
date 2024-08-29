@@ -10,6 +10,7 @@ public class PlayerController : NetworkBehaviour
     public Ship ship;
     public float speed;
     public float rotationSpeed;
+    public GameObject button;
 
     private Vector3 direction;
     private Vector3 rDirection;
@@ -42,6 +43,7 @@ public class PlayerController : NetworkBehaviour
         CanMove = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        button.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
