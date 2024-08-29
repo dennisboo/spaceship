@@ -4,6 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Steamworks;
+using TMPro;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerController : NetworkBehaviour
     public float speed;
     public float rotationSpeed;
     public GameObject button;
+    public TextMeshProUGUI healthText;
 
     private Vector3 direction;
     private Vector3 rDirection;
@@ -32,6 +34,7 @@ public class PlayerController : NetworkBehaviour
         {
             button.SetActive(false);
             Cam.enabled = false;
+            healthText.enabled = false;
             AudioListener[] listeners = GetComponentsInChildren<AudioListener>();
             foreach (AudioListener listener in listeners)
             {
@@ -41,6 +44,7 @@ public class PlayerController : NetworkBehaviour
         else
         {
             transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
+            ModifyHealth(0);
         }
 
     }
@@ -157,6 +161,7 @@ public class PlayerController : NetworkBehaviour
     public void ModifyHealth(float amount)
     {
         currentHealth += amount;
+        healthText.text = "Health: " + currentHealth.ToString();
         if(currentHealth <= 0)
         {
             transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
