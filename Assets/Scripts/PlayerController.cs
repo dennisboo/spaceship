@@ -128,7 +128,7 @@ public class PlayerController : NetworkBehaviour
         }
         Transform shootspot = muzzles[CannonIndex];
         
-        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,shootspot.forward*projectileSpeed,new NetworkObjectReference (gameObject));
+        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,shootspot.forward*projectileSpeed, this.NetworkObjectId);
        
         CannonIndex += 1;
         if (CannonIndex >= muzzles.Length)
@@ -151,7 +151,7 @@ public class PlayerController : NetworkBehaviour
         if (collision.collider.GetComponent<Bullet>() != null)
         {
             Debug.Log("ouch!");
-            GameManager.instance.DamagePlayerRPC(NetworkManager.Singleton.LocalClientId, collision.collider.GetComponent<Bullet>().damage);
+            GameManager.instance.DamagePlayerRPC(this.NetworkObjectId, collision.collider.GetComponent<Bullet>().damage);
         }
     }
     public void ModifyHealth(float amount)

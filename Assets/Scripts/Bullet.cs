@@ -4,7 +4,7 @@ using UnityEngine;
 using Steamworks;
 using Unity.Netcode;
 
-public class Bullet : NetworkBehaviour
+public class Bullet : MonoBehaviour
 {
     public float damage = 10;
     // Start is called before the first frame update

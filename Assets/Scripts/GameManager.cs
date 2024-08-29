@@ -33,17 +33,17 @@ public class GameManager : NetworkBehaviour
         
     }
     [Rpc(SendTo.Everyone)]
-    public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, Vector3 projectileVector,NetworkObjectReference PlayerObject)
+    public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, Vector3 projectileVector,ulong id)
     {
         GameObject Instance = Instantiate(projectile, pos, rot);
-       
-        var InstanceNetworkObject = Instance.GetComponent<NetworkObject>();
-       InstanceNetworkObject.Spawn();
-       if(!PlayerObject.TryGet(out NetworkObject Netobject)){
 
-       }
+        /* var InstanceNetworkObject = Instance.GetComponent<NetworkObject>();
+        InstanceNetworkObject.Spawn();
+        if(!PlayerObject.TryGet(out NetworkObject Netobject)){
 
-        Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(),Netobject.gameObject.GetComponentInChildren<Collider>());
+        }*/
+        Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(),
+        NetworkManager.SpawnManager.SpawnedObjects[id].GetComponentInChildren<Collider>());
         Instance.GetComponent<Rigidbody>().AddForce(projectileVector, ForceMode.VelocityChange);
 
     }
