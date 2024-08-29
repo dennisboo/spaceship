@@ -7,6 +7,8 @@ using Steamworks;
 
 public class PlayerController : NetworkBehaviour
 {
+    public ulong id;
+    public float currentHealth = 100f;
     public Ship ship;
     public float speed;
     public float rotationSpeed;
@@ -28,9 +30,8 @@ public class PlayerController : NetworkBehaviour
     {
         if (!IsOwner)
         {
-           
+            button.SetActive(false);
             Cam.enabled = false;
-            
         }
         else
         {
@@ -141,6 +142,20 @@ public class PlayerController : NetworkBehaviour
         {
             Debug.Log("asg");
             Destroy(gameObject);
+        }
+        if (collision.collider.GetComponent<Bullet>() != null)
+        {
+            Debug.Log("ouch!");
+            GameManager.instance.DamagePlayerRPC(NetworkManager.Singleton.LocalClientId, collision.collider.GetComponent<Bullet>().damage);
+        }
+    }
+    public void ModifyHealth(float amount)
+    {
+        currentHealth += amount;
+        if(currentHealth <= 0)
+        {
+            transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
+            transform.rotation = Quaternion.identity;
         }
     }
 }

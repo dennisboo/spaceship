@@ -11,7 +11,7 @@ public class GameManager : NetworkBehaviour
 {
     public GameObject projectile;
     public static GameManager instance { get; private set; }
-    public Dictionary<int,PlayerInput> Players = new Dictionary <int,PlayerInput>();
+
     
     
 
@@ -32,7 +32,7 @@ public class GameManager : NetworkBehaviour
     {
         
     }
-    [Rpc(SendTo.Server)]
+    [Rpc(SendTo.Everyone)]
     public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, Vector3 projectileVector,NetworkObjectReference PlayerObject)
     {
         GameObject Instance = Instantiate(projectile, pos, rot);
@@ -46,6 +46,11 @@ public class GameManager : NetworkBehaviour
         Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(),Netobject.gameObject.GetComponentInChildren<Collider>());
         Instance.GetComponent<Rigidbody>().AddForce(projectileVector, ForceMode.VelocityChange);
 
+    }
+    [Rpc(SendTo.Everyone)]
+    public void DamagePlayerRPC(ulong id, float amount)
+    {
+        NetworkManager.Singleton.ConnectedClients[id].PlayerObject.GetComponent<PlayerController>().ModifyHealth(amount);
     }
     [Rpc(SendTo.NotServer)]
     public void DisableCollisionRPC(NetworkObjectReference PlayerObject)
