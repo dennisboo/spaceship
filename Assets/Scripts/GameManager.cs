@@ -50,7 +50,7 @@ public class GameManager : NetworkBehaviour
     [Rpc(SendTo.Everyone)]
     public void DamagePlayerRPC(ulong id, float amount)
     {
-        NetworkManager.SpawnManager.SpawnedObjects[id].GetComponent<PlayerController>().ModifyHealth(amount);
+        NetworkManager.SpawnManager.SpawnedObjects[id].GetComponent<PlayerController>().ModifyHealth(-amount);
     }
     [Rpc(SendTo.NotServer)]
     public void DisableCollisionRPC(NetworkObjectReference PlayerObject)

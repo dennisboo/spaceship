@@ -160,12 +160,12 @@ public class PlayerController : NetworkBehaviour
     public void ModifyHealth(float amount)
     {
         currentHealth += amount;
-        healthText.text = "Health: " + currentHealth.ToString();
         if(currentHealth <= 0)
         {
             transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
             transform.rotation = Quaternion.identity;
             currentHealth = 100f;
         }
+        healthText.text = "Health: " + currentHealth.ToString();
     }
 }
