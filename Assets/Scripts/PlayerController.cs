@@ -149,8 +149,7 @@ public class PlayerController : NetworkBehaviour
         Debug.Log("sds");
         if(collision.collider.CompareTag("Floor"))
         {
-            Debug.Log("asg");
-            Destroy(gameObject);
+            Debug.Log("asg"); GameManager.instance.DamagePlayerRPC(this.NetworkObjectId, 100);
         }
         if (collision.collider.GetComponent<Bullet>() != null)
         {
@@ -166,6 +165,7 @@ public class PlayerController : NetworkBehaviour
         {
             transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
             transform.rotation = Quaternion.identity;
+            currentHealth = 100f;
         }
     }
 }
