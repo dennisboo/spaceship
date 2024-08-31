@@ -233,9 +233,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: controllershipwithquadgun
   maxHealth: 20
+  muzzles: []
+  Cam: {fileID: 0}
   speed: 80
   attack: 60
   handling: 40
+  shootSpeed: 500
+  projectileSpeed: 300
 --- !u!1 &9145195222032369115
 GameObject:
   m_ObjectHideFlags: 0

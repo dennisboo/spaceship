@@ -49,9 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: wrenchshipwithquadgun
   maxHealth: 40
+  muzzles: []
+  Cam: {fileID: 0}
   speed: 70
   attack: 60
   handling: 30
+  shootSpeed: 500
+  projectileSpeed: 300
 --- !u!1 &5254703100087920793
 GameObject:
   m_ObjectHideFlags: 0

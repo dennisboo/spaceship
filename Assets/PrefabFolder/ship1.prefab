@@ -49,9 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Longshipwithdualgun
   maxHealth: 40
+  muzzles: []
+  Cam: {fileID: 0}
   speed: 80
   attack: 30
   handling: 50
+  shootSpeed: 500
+  projectileSpeed: 300
 --- !u!1 &4689680976173171516
 GameObject:
   m_ObjectHideFlags: 0

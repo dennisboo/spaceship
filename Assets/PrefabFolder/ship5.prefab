@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2599605287428231374}
   - component: {fileID: 3920226978750479311}
   - component: {fileID: 8613341540209379836}
+  - component: {fileID: 2063732249557874886}
   m_Layer: 0
   m_Name: ship
   m_TagString: Untagged
@@ -85,6 +86,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2063732249557874886
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303756395952576893}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2838047407261934760, guid: 2938926ba10f10e4997346dd97212aeb, type: 3}
 --- !u!1 &2219628043037863584
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,9 +253,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: wrenchshipwithquadgun
   maxHealth: 40
+  muzzles:
+  - {fileID: 9147158264051878449}
+  - {fileID: 5337390565433682640}
+  - {fileID: 6508639469248425430}
+  - {fileID: 3817820115446648608}
+  Cam: {fileID: 6454924059686589874}
   speed: 60
   attack: 70
   handling: 30
+  shootSpeed: 500
+  projectileSpeed: 300
 --- !u!1 &4985171435734229012
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &555900685734056902
 Transform:
   m_ObjectHideFlags: 0
@@ -321,13 +352,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6976689128362735820}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 0, y: 0.6, z: -1.3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.03, z: -2.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4348610028923678514}
-  m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6454924059686589874
 Camera:
   m_ObjectHideFlags: 0
@@ -360,7 +391,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1000
+  far clip plane: 2000
   field of view: 60
   orthographic: 0
   orthographic size: 5

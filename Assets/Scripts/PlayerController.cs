@@ -10,7 +10,7 @@ public class PlayerController : NetworkBehaviour
 {
     public ulong id;
     public float currentHealth = 100f;
-    public Ship ship;
+    private Ship ship;
     public float speed;
     public float rotationSpeed;
     public GameObject button;
@@ -18,22 +18,28 @@ public class PlayerController : NetworkBehaviour
 
     private Vector3 direction;
     private Vector3 rDirection;
-    public Camera Cam;
+    
     public GameObject Projectile;
-    public Transform[] muzzles;
+    public float maxHealth = 100;
+    
     public float ShootDelay;
+    public float Damage;
     private bool CanShoot = true;
     private int CannonIndex;
     public bool IsHoldingDownShoot = false;
     public float projectileSpeed = 5;
     public bool CanMove = false;
+    
 
     public override void OnNetworkSpawn()
     {
+        ship = GetComponentInChildren<Ship>();
+        ModifyHealth(0);
+        CopyShip();
         if (!IsOwner)
         {
             button.SetActive(false);
-            Cam.enabled = false;
+            ship.Cam.enabled = false;
             healthText.enabled = false;
             AudioListener[] listeners = GetComponentsInChildren<AudioListener>();
             foreach (AudioListener listener in listeners)
@@ -44,7 +50,7 @@ public class PlayerController : NetworkBehaviour
         else
         {
             transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
-            ModifyHealth(0);
+            
         }
 
     }
@@ -130,12 +136,12 @@ public class PlayerController : NetworkBehaviour
         {
             return;
         }
-        Transform shootspot = muzzles[CannonIndex];
+        Transform shootspot = ship.muzzles[CannonIndex];
         
-        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,shootspot.forward*projectileSpeed, this.NetworkObjectId);
+        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,Damage,shootspot.forward*projectileSpeed, this.NetworkObjectId);
        
         CannonIndex += 1;
-        if (CannonIndex >= muzzles.Length)
+        if (CannonIndex >= ship.muzzles.Length)
         {
             CannonIndex = 0;
         }
@@ -164,8 +170,19 @@ public class PlayerController : NetworkBehaviour
         {
             transform.position = GameObject.FindWithTag("Spawnpoint").transform.position;
             transform.rotation = Quaternion.identity;
-            currentHealth = 100f;
+            currentHealth = maxHealth;
         }
         healthText.text = "Health: " + currentHealth.ToString();
     }
+    public void CopyShip()
+    {
+        speed = ship.speed;
+        maxHealth = ship.maxHealth;
+        Damage = ship.attack * 0.1f;
+        currentHealth = maxHealth;
+        ShootDelay = 60f/ship.shootSpeed;
+        projectileSpeed = ship.projectileSpeed;
+        ModifyHealth(0);
+    }
+
 }
