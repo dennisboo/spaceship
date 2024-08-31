@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1355291024
+  GlobalObjectIdHash: 1350943207
   InScenePlacedSourceGlobalObjectIdHash: 1350943207
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -324,9 +324,9 @@ MonoBehaviour:
   - {fileID: 2797941550647888156}
   - {fileID: 3933089878727577114}
   - {fileID: 6358500337369197804}
-  ShootDelay: 0.2
+  ShootDelay: 0.13
   IsHoldingDownShoot: 0
-  projectileSpeed: 200
+  projectileSpeed: 300
   CanMove: 0
 --- !u!96 &1549047067298675014
 TrailRenderer:
