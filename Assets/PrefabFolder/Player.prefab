@@ -314,7 +314,7 @@ MonoBehaviour:
   currentHealth: 100
   ship: {fileID: 8295863101156470204}
   speed: 30
-  rotationSpeed: 10
+  rotationSpeed: 5
   button: {fileID: 7223332605890142793}
   healthText: {fileID: 273466456822375208}
   Cam: {fileID: 3842149166195390078}
@@ -324,9 +324,9 @@ MonoBehaviour:
   - {fileID: 2797941550647888156}
   - {fileID: 3933089878727577114}
   - {fileID: 6358500337369197804}
-  ShootDelay: 0.3
+  ShootDelay: 0.2
   IsHoldingDownShoot: 0
-  projectileSpeed: 100
+  projectileSpeed: 200
   CanMove: 0
 --- !u!96 &1549047067298675014
 TrailRenderer:
