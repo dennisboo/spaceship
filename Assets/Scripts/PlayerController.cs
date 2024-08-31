@@ -68,8 +68,8 @@ public class PlayerController : NetworkBehaviour
 
         direction = transform.forward;
 
-        Vector3 HorizontalRotationVector = new Vector3(0,rDirection.x,0) * rotationSpeed * Time.deltaTime;
-        Vector3 VerticalRotationVector = new Vector3(-rDirection.y,0,0) * rotationSpeed * Time.deltaTime;
+        Vector3 HorizontalRotationVector = new Vector3(0,rDirection.x,0) * rotationSpeed ;
+        Vector3 VerticalRotationVector = new Vector3(-rDirection.y,0,0) * rotationSpeed ;
 
         transform.Rotate(VerticalRotationVector);
         transform.Rotate(HorizontalRotationVector, Space.World);
