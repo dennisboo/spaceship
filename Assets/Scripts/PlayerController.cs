@@ -61,6 +61,7 @@ public class PlayerController : NetworkBehaviour
         Debug.Log("asf");
         if(!IsOwner)
         {
+            ship = GetComponentInChildren<Ship>();
             ship.Cam.enabled = false;
             AudioListener[] listeners = GetComponentsInChildren<AudioListener>();
             foreach (AudioListener listener in listeners)
