@@ -53,7 +53,7 @@ public class PlayerController : NetworkBehaviour
     public void ActivatePlayer()
     {
         ChooseShip(GameManager.instance.SelectedShip);
-        if(!isOwner)
+        if(!IsOwner)
         {
             ship.Cam.enabled = false;
             AudioListener[] listeners = GetComponentsInChildren<AudioListener>();
