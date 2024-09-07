@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShipSelector : MonoBehaviour
 {
@@ -18,7 +19,14 @@ public class ShipSelector : MonoBehaviour
     {
         Ship ship =   ships[currentShipSelection];
         statsDisplay.SetData(ship);
+        GameManager.instance.SelectedShip = currentShipSelection;
         ship.SelectedAnimation();
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            yield return new WaitForSeconds(1.3f);
+            SceneManager.LoadScene("GameScene");
+        }
     }
     
     public void NextShip()

@@ -1548,6 +1548,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 2634731728465599857, guid: 45b40d3e42aa323438c725e80817c443, type: 3}
+  ships:
+  - {fileID: 1810791211281529120, guid: f3202556a9b1a21489cdc6238bf9abb3, type: 3}
+  - {fileID: 407334558206005371, guid: ae4db26d91865b040a0e4ccc42dd0550, type: 3}
+  - {fileID: 3018375525867443934, guid: c17e48beae3e9dd48a62adb77ba1b6bf, type: 3}
+  - {fileID: 5943836146205530947, guid: 4172b720152f668459122e6a93b21f58, type: 3}
+  - {fileID: 3968389684752692616, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
+  - {fileID: 690023529757083203, guid: e86300a8a2d930b4596ecbe1b44eaebe, type: 3}
+  - {fileID: 4032992259793083035, guid: 33ec12505b734764eab92a16e19e3fa5, type: 3}
+  - {fileID: 6884258366203481230, guid: 8139cf5bb7cb6584cb249edf5d8378bf, type: 3}
+  - {fileID: 4647226521291896985, guid: 70302560b20f4574ba0342a52505024b, type: 3}
 --- !u!4 &1025952007
 Transform:
   m_ObjectHideFlags: 0

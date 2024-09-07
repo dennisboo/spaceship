@@ -10,7 +10,9 @@ public class GameManager : NetworkBehaviour
 
 {
     public GameObject projectile;
+    public GameObject [] ships;
     public static GameManager instance { get; private set; }
+    public int SelectedShip = 0;
 
     
     
@@ -43,8 +45,15 @@ public class GameManager : NetworkBehaviour
 
     }
     [Rpc(SendTo.Everyone)]
+    public void ChangeShipRPC(ulong parentid, int ShipNumber)
+    {
+        GameObject instance = Instantiate(ships[ShipNumber],NetworkManager.SpawnManager.SpawnedObjects[parentid].transform);
+    }
+    [Rpc(SendTo.Everyone)]
+    
     public void DamagePlayerRPC(ulong id, float amount)
     {
+    
         NetworkManager.SpawnManager.SpawnedObjects[id].GetComponent<PlayerController>().ModifyHealth(-amount);
     }
     [Rpc(SendTo.NotServer)]

@@ -35,7 +35,7 @@ public class PlayerController : NetworkBehaviour
     {
         ship = GetComponentInChildren<Ship>();
         ModifyHealth(0);
-        CopyShip();
+        
         if (!IsOwner)
         {
             button.SetActive(false);
@@ -56,6 +56,7 @@ public class PlayerController : NetworkBehaviour
     }
     public void ActivatePlayer()
     {
+        ChooseShip(GameManager.instance.SelectedShip);
         CanMove = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -183,6 +184,12 @@ public class PlayerController : NetworkBehaviour
         ShootDelay = 60f/ship.shootSpeed;
         projectileSpeed = ship.projectileSpeed;
         ModifyHealth(0);
+    }
+    public void ChooseShip(int ShipNumber)
+    {
+        GameManager.instance.ChangeShipRPC(this.NetworkObjectId,ShipNumber);
+        ship = GetComponentInChildren<Ship>();
+        CopyShip();
     }
 
 }
