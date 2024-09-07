@@ -39,13 +39,9 @@ public class PlayerController : NetworkBehaviour
         if (!IsOwner)
         {
             button.SetActive(false);
-            ship.Cam.enabled = false;
+            
             healthText.enabled = false;
-            AudioListener[] listeners = GetComponentsInChildren<AudioListener>();
-            foreach (AudioListener listener in listeners)
-            {
-                listener.enabled = false;
-            }
+            
         }
         else
         {
@@ -57,6 +53,15 @@ public class PlayerController : NetworkBehaviour
     public void ActivatePlayer()
     {
         ChooseShip(GameManager.instance.SelectedShip);
+        if(!isOwner)
+        {
+            ship.Cam.enabled = false;
+            AudioListener[] listeners = GetComponentsInChildren<AudioListener>();
+            foreach (AudioListener listener in listeners)
+            {
+                listener.enabled = false;
+            }
+        }
         CanMove = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
