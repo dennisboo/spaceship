@@ -47,8 +47,11 @@ public class GameManager : NetworkBehaviour
     [Rpc(SendTo.Everyone)]
     public void ChangeShipRPC(ulong parentid, int ShipNumber)
     {
-        GameObject instance = Instantiate(ships[ShipNumber],NetworkManager.SpawnManager.SpawnedObjects[parentid].transform);
+        Transform ParentTransform = NetworkManager.SpawnManager.SpawnedObjects[parentid].transform;
+        GameObject instance = Instantiate(ships[ShipNumber],ParentTransform);
+        ParentTransform.GetComponent<PlayerController>().ActivatePlayer();
     }
+    
     [Rpc(SendTo.Everyone)]
     
     public void DamagePlayerRPC(ulong id, float amount)

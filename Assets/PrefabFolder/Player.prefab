@@ -815,7 +815,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2065819215155192822}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: ActivatePlayer
+        m_MethodName: OnReadyButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

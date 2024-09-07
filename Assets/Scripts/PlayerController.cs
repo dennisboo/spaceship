@@ -38,6 +38,7 @@ public class PlayerController : NetworkBehaviour
         
         if (!IsOwner)
         {
+            
             button.SetActive(false);
             
             healthText.enabled = false;
@@ -50,9 +51,14 @@ public class PlayerController : NetworkBehaviour
         }
 
     }
-    public void ActivatePlayer()
+    public void OnReadyButtonPress()
     {
         ChooseShip(GameManager.instance.SelectedShip);
+        
+    }
+    public void ActivatePlayer()
+    {
+        Debug.Log("asf");
         if(!IsOwner)
         {
             ship.Cam.enabled = false;
@@ -62,10 +68,16 @@ public class PlayerController : NetworkBehaviour
                 listener.enabled = false;
             }
         }
-        CanMove = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        button.SetActive(false);
+        else
+        {
+            CanMove = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            button.SetActive(false);
+        }
+
+        
+        
     }
     // Start is called before the first frame update
     void Start()
