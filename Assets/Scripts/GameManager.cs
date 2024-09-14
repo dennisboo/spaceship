@@ -10,6 +10,8 @@ public class GameManager : NetworkBehaviour
 
 {
     public GameObject projectile;
+    public GameObject Altprojectile;
+
     public GameObject [] ships;
     public static GameManager instance { get; private set; }
     public int SelectedShip = 0;
@@ -35,10 +37,14 @@ public class GameManager : NetworkBehaviour
         
     }
     [Rpc(SendTo.Everyone)]
-    public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, float damage, Vector3 projectileVector,ulong id)
+    public void SpawnProjectileRPC(Vector3 pos, Quaternion rot, float damage, Vector3 projectileVector,ulong id,int projectiletype)
+
     {
-        GameObject Instance = Instantiate(projectile, pos, rot);
-        Instance.GetComponent<Bullet>().damage = damage;
+        GameObject projectiletospawn = projectiletype == 0?projectile:Altprojectile;
+
+        GameObject Instance = Instantiate(projectiletospawn, pos, rot);
+        Bullet B = Instance.GetComponent<Bullet>();
+        B.damage = damage*B.damagemultiplier;
         Physics.IgnoreCollision(Instance.GetComponentInChildren<Collider>(),
         NetworkManager.SpawnManager.SpawnedObjects[id].GetComponentInChildren<Collider>());
         Instance.GetComponent<Rigidbody>().AddForce(projectileVector, ForceMode.VelocityChange);

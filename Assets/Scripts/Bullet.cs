@@ -6,7 +6,8 @@ using Unity.Netcode;
 
 public class Bullet : MonoBehaviour
 {
-    public float damage = 10;
+    public float damagemultiplier = 1;
+    public float damage = 0;
     // Start is called before the first frame update
     void Start()
     {

@@ -136,6 +136,32 @@ public class PlayerController : NetworkBehaviour
         }
 
     }
+    public void OnAltShoot(InputAction.CallbackContext Context)
+    {
+        if(!IsOwner || !CanMove)
+        {
+            return;
+        }
+        
+        if (Context.performed)
+        {
+            
+            
+            StartCoroutine(AltShootCouroutine());
+            
+           
+            
+        }
+        
+
+    }
+    IEnumerator AltShootCouroutine()
+    {
+       Transform shootspot = transform;
+        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,Damage,shootspot.forward*projectileSpeed, this.NetworkObjectId, 1);
+        yield return null;
+       
+    }
 
     IEnumerator ShootCouroutine()
     {
@@ -157,7 +183,7 @@ public class PlayerController : NetworkBehaviour
         }
         Transform shootspot = ship.muzzles[CannonIndex];
         
-        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,Damage,shootspot.forward*projectileSpeed, this.NetworkObjectId);
+        GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,Damage,shootspot.forward*projectileSpeed, this.NetworkObjectId,0);
        
         CannonIndex += 1;
         if (CannonIndex >= ship.muzzles.Length)

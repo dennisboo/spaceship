@@ -1585,6 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 2634731728465599857, guid: 45b40d3e42aa323438c725e80817c443, type: 3}
+  Altprojectile: {fileID: 2634731728465599857, guid: 0a24cf760afa41845aac21583bbc62da, type: 3}
   ships:
   - {fileID: 1810791211281529120, guid: f3202556a9b1a21489cdc6238bf9abb3, type: 3}
   - {fileID: 407334558206005371, guid: ae4db26d91865b040a0e4ccc42dd0550, type: 3}
