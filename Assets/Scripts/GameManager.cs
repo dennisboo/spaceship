@@ -48,11 +48,6 @@ public class GameManager : NetworkBehaviour
     public void ChangeShipRPC(ulong parentid, int ShipNumber)
     {
         Transform ParentTransform = NetworkManager.SpawnManager.SpawnedObjects[parentid].transform;
-        Ship ship = ParentTransform.GetComponentInChildren<Ship>();
-        if(ship != null)
-        {
-            Destroy(ship.gameObject);
-        }
         GameObject instance = Instantiate(ships[ShipNumber],ParentTransform);
         ParentTransform.GetComponent<PlayerController>().InitializePlayer();
     }
