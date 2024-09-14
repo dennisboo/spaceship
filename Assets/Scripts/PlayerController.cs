@@ -34,7 +34,6 @@ public class PlayerController : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         ship = GetComponentInChildren<Ship>();
-        ChooseShip(GameManager.instance.SelectedShip);
         ModifyHealth(0);
         
         if (!IsOwner)
@@ -54,11 +53,12 @@ public class PlayerController : NetworkBehaviour
     }
     public void OnReadyButtonPress()
     {
-        ActivatePlayer();
+        ChooseShip(GameManager.instance.SelectedShip);
         
     }
-    public void InitializePlayer()
+    public void ActivatePlayer()
     {
+        Debug.Log("asf");
         if(!IsOwner)
         {
             ship = GetComponentInChildren<Ship>();
@@ -68,15 +68,6 @@ public class PlayerController : NetworkBehaviour
             {
                 listener.enabled = false;
             }
-        }
-        
-    }
-    public void ActivatePlayer()
-    {
-        
-        if(!IsOwner)
-        {
-            
         }
         else
         {

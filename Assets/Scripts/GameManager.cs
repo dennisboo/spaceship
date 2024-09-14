@@ -49,7 +49,7 @@ public class GameManager : NetworkBehaviour
     {
         Transform ParentTransform = NetworkManager.SpawnManager.SpawnedObjects[parentid].transform;
         GameObject instance = Instantiate(ships[ShipNumber],ParentTransform);
-        ParentTransform.GetComponent<PlayerController>().InitializePlayer();
+        ParentTransform.GetComponent<PlayerController>().ActivatePlayer();
     }
     
     [Rpc(SendTo.Everyone)]
