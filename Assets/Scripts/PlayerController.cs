@@ -34,14 +34,7 @@ public class PlayerController : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         ship = GetComponentInChildren<Ship>();
-        StartCoroutine(wait());
-        IEnumerator wait()
-        {
-            yield return new WaitForSeconds(1);
-            ChooseShip(GameManager.instance.SelectedShip);
-            button.SetActive(true);
-        }
-        
+        ChooseShip(GameManager.instance.SelectedShip);
         ModifyHealth(0);
         
         if (!IsOwner)
