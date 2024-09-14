@@ -43,13 +43,7 @@ public class PlayerController : NetworkBehaviour
             button.SetActive(false);
             
             healthText.enabled = false;
-            ship = GetComponentInChildren<Ship>();
-            ship.Cam.enabled = false;
-            AudioListener[] listeners = GetComponentsInChildren<AudioListener>();
-            foreach (AudioListener listener in listeners)
-            {
-                listener.enabled = false;
-            } 
+            
         }
         else
         {
@@ -67,7 +61,13 @@ public class PlayerController : NetworkBehaviour
     {
         if(!IsOwner)
         {
-            
+            ship = GetComponentInChildren<Ship>();
+            ship.Cam.enabled = false;
+            AudioListener[] listeners = GetComponentsInChildren<AudioListener>();
+            foreach (AudioListener listener in listeners)
+            {
+                listener.enabled = false;
+            }
         }
         
     }
