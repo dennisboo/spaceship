@@ -31,6 +31,7 @@ public class PlayerController : NetworkBehaviour
     public float projectileSpeed = 5;
     public bool CanMove = false;
     public bool isHoldingDownAltShot = false;
+    private bool CanBoost = true;
     
 
     public override void OnNetworkSpawn()
@@ -161,6 +162,31 @@ public class PlayerController : NetworkBehaviour
         }
         
 
+    }
+    public void OnBoost(InputAction.CallbackContext Context)
+    {
+        if(!IsOwner || !CanMove || !CanBoost)
+        {
+            return;
+        }
+        if(Context.performed)
+        {
+            StartCoroutine(Boost());
+        }
+
+    }
+    IEnumerator Boost()
+    {
+        CanBoost = false;
+        float OriginalSpeed = speed;
+        speed = speed*3;
+        float OriginalSensitivity = rotationSpeed;
+        rotationSpeed = rotationSpeed/2;
+        yield return new WaitForSeconds(2f);
+        speed = OriginalSpeed;
+        rotationSpeed = OriginalSensitivity;
+        yield return new WaitForSeconds(5f);
+        CanBoost = true;
     }
     IEnumerator AltShootCouroutine()
     {

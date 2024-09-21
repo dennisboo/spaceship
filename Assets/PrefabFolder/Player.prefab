@@ -5119,7 +5119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1355291024
+  GlobalObjectIdHash: 1051143010
   InScenePlacedSourceGlobalObjectIdHash: 1350943207
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -5332,6 +5332,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 85bb4afd-48b0-4261-9b64-8a9de8441adc
     m_ActionName: New action map/AltShot[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2065819215155192822}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnBoost
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 114207fe-8f0c-464e-ad25-be64db68c9ba
+    m_ActionName: New action map/Boost[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
