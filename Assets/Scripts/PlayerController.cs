@@ -9,6 +9,7 @@ using TMPro;
 public class PlayerController : NetworkBehaviour
 {
     public ulong id;
+    public ParticleSystem ChargeEffect;
     public float currentHealth = 100f;
     private Ship ship;
     public float speed;
@@ -29,6 +30,7 @@ public class PlayerController : NetworkBehaviour
     public bool IsHoldingDownShoot = false;
     public float projectileSpeed = 5;
     public bool CanMove = false;
+    public bool isHoldingDownAltShot = false;
     
 
     public override void OnNetworkSpawn()
@@ -145,6 +147,7 @@ public class PlayerController : NetworkBehaviour
         
         if (Context.performed)
         {
+            isHoldingDownAltShot = true;
             
             
             StartCoroutine(AltShootCouroutine());
@@ -152,14 +155,33 @@ public class PlayerController : NetworkBehaviour
            
             
         }
+        else if(Context.canceled)
+        {
+            isHoldingDownAltShot = false;
+        }
         
 
     }
     IEnumerator AltShootCouroutine()
     {
-       Transform shootspot = transform;
+       ChargeEffect.Play();
+       float StartTime = Time.time;
+        while(isHoldingDownAltShot == true)
+        {
+            if(Time.time-StartTime >= 1.3f)
+            {
+                ChargeEffect.Stop();
+            }
+            yield return null;
+        }
+        ChargeEffect.Stop();
+     if(Time.time - StartTime >= 1.3f)
+     {
+        Transform shootspot = transform;
         GameManager.instance.SpawnProjectileRPC(shootspot.position,shootspot.rotation,Damage,shootspot.forward*projectileSpeed, this.NetworkObjectId, 1);
-        yield return null;
+        
+     }
+       yield return null;
        
     }
 
