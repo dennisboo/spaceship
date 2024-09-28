@@ -16,6 +16,7 @@ public class PlayerController : NetworkBehaviour
     public float rotationSpeed;
     public GameObject button;
     public TextMeshProUGUI healthText;
+    public AudioSource source;
 
     private Vector3 direction;
     private Vector3 rDirection;
@@ -191,6 +192,7 @@ public class PlayerController : NetworkBehaviour
     IEnumerator AltShootCouroutine()
     {
        ChargeEffect.Play();
+       source.Play();
        float StartTime = Time.time;
         while(isHoldingDownAltShot == true)
         {

@@ -17,12 +17,12 @@ public class PlayerHighlighter : MonoBehaviour
         Players = GameObject.FindGameObjectsWithTag("Player");
         
     }
-    private void OnGUI() 
-    {
-        foreach(GameObject Player in Players)
-        {
-            Vector2 ScreenCoordinates = Camera.main.WorldToScreenPoint(Player.transform.position);
-            GUI.Label(new Rect(10,10,ScreenCoordinates.x,ScreenCoordinates.y),"BadGuy");
-        }
-    }
+//     private void OnGUI() 
+//     {
+//         foreach(GameObject Player in Players)
+//         {
+//             Vector2 ScreenCoordinates = Camera.main.WorldToScreenPoint(Player.transform.position);
+//             GUI.Label(new Rect(10,10,ScreenCoordinates.x,ScreenCoordinates.y),"BadGuy");
+//         }
+//     }
 }
