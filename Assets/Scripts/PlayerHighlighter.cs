@@ -1,25 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerHighlighter : MonoBehaviour
+public class PlayerHighlighter : NetworkBehaviour
 {
     GameObject[] Players;
     Camera cam;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(!IsOwner)
+        {
+            return;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Players = GameObject.FindGameObjectsWithTag("Player");
+       if(!IsOwner)
+        {
+            return;
+        }
+       Players = GameObject.FindGameObjectsWithTag("Player");
         
     }
     private void OnGUI() 
     {
+        if(!IsOwner)
+        {
+            return;
+        }
         if(cam == null)
         {
             cam = GetComponentInChildren<Camera>();
