@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHighlighter : MonoBehaviour
 {
     GameObject[] Players;
+    Camera cam;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,23 @@ public class PlayerHighlighter : MonoBehaviour
         Players = GameObject.FindGameObjectsWithTag("Player");
         
     }
-//     private void OnGUI() 
-//     {
-//         foreach(GameObject Player in Players)
-//         {
-//             Vector2 ScreenCoordinates = Camera.main.WorldToScreenPoint(Player.transform.position);
-//             GUI.Label(new Rect(10,10,ScreenCoordinates.x,ScreenCoordinates.y),"BadGuy");
-//         }
-//     }
+    private void OnGUI() 
+    {
+        if(cam == null)
+        {
+            cam = GetComponentInChildren<Camera>();
+        }
+        else
+        {
+            foreach(GameObject Player in Players)
+            {
+                
+                Vector2 ScreenCoordinates = cam.WorldToScreenPoint(Player.transform.position);
+                Debug.Log(ScreenCoordinates);
+                GUI.Label(new Rect(ScreenCoordinates.x,Screen.height-ScreenCoordinates.y,100,100),"Player");
+            
+            }
+        }
+        
+    }
 }
