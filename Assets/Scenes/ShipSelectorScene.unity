@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: triangleshipwithquadgun
       objectReference: {fileID: 0}
+    - target: {fileID: 7375837912093775015, guid: 4172b720152f668459122e6a93b21f58, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144927655970393340, guid: 4172b720152f668459122e6a93b21f58, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 1723892306}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -289,7 +297,11 @@ PrefabInstance:
     - target: {fileID: 1725514133043533747, guid: ae4db26d91865b040a0e4ccc42dd0550, type: 3}
       propertyPath: volumeTrigger
       value: 
-      objectReference: {fileID: 373498734}
+      objectReference: {fileID: 1723892306}
+    - target: {fileID: 6836618176818813546, guid: ae4db26d91865b040a0e4ccc42dd0550, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7658248285937673738, guid: ae4db26d91865b040a0e4ccc42dd0550, type: 3}
       propertyPath: volumeTrigger
       value: 
@@ -363,10 +375,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162437821}
     m_Modifications:
+    - target: {fileID: 365437238017776480, guid: 33ec12505b734764eab92a16e19e3fa5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1965567304373508834, guid: 33ec12505b734764eab92a16e19e3fa5, type: 3}
       propertyPath: volumeTrigger
       value: 
-      objectReference: {fileID: 373498734}
+      objectReference: {fileID: 1723892306}
     - target: {fileID: 4032992259793083035, guid: 33ec12505b734764eab92a16e19e3fa5, type: 3}
       propertyPath: m_Name
       value: controllershipwithquadgun
@@ -629,6 +645,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348610028923678514, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976689128362735820, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2011,10 +2031,14 @@ PrefabInstance:
     - target: {fileID: 5327177778158152688, guid: 8139cf5bb7cb6584cb249edf5d8378bf, type: 3}
       propertyPath: volumeTrigger
       value: 
-      objectReference: {fileID: 373498734}
+      objectReference: {fileID: 1723892306}
     - target: {fileID: 6884258366203481230, guid: 8139cf5bb7cb6584cb249edf5d8378bf, type: 3}
       propertyPath: m_Name
       value: smallshipwithdualgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195701606801469887, guid: 8139cf5bb7cb6584cb249edf5d8378bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2288,6 +2312,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162437821}
     m_Modifications:
+    - target: {fileID: 1283343500470997506, guid: c17e48beae3e9dd48a62adb77ba1b6bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3018375525867443934, guid: c17e48beae3e9dd48a62adb77ba1b6bf, type: 3}
       propertyPath: m_Name
       value: longshipwithquadgun
@@ -2295,7 +2323,7 @@ PrefabInstance:
     - target: {fileID: 4981795593219330624, guid: c17e48beae3e9dd48a62adb77ba1b6bf, type: 3}
       propertyPath: volumeTrigger
       value: 
-      objectReference: {fileID: 373498734}
+      objectReference: {fileID: 1723892306}
     - target: {fileID: 7678652387802110138, guid: c17e48beae3e9dd48a62adb77ba1b6bf, type: 3}
       propertyPath: volumeTrigger
       value: 
@@ -2361,6 +2389,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271ced0313415c94aa44d2af59aa78a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1723892306 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 555900685734056902, guid: 95a19f267f071fc4ca1d6479071113d9, type: 3}
+  m_PrefabInstance: {fileID: 257893980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1745611846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,10 +2507,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162437821}
     m_Modifications:
+    - target: {fileID: 590525406887455465, guid: 70302560b20f4574ba0342a52505024b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1663280965654929176, guid: 70302560b20f4574ba0342a52505024b, type: 3}
       propertyPath: volumeTrigger
       value: 
-      objectReference: {fileID: 373498734}
+      objectReference: {fileID: 1723892306}
     - target: {fileID: 3064502503436881603, guid: 70302560b20f4574ba0342a52505024b, type: 3}
       propertyPath: volumeTrigger
       value: 
@@ -2700,6 +2737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wrenchshipwithquadgun
       objectReference: {fileID: 0}
+    - target: {fileID: 5331763642046921889, guid: e86300a8a2d930b4596ecbe1b44eaebe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7890865105376612397, guid: e86300a8a2d930b4596ecbe1b44eaebe, type: 3}
       propertyPath: volumeTrigger
       value: 
@@ -2707,7 +2748,7 @@ PrefabInstance:
     - target: {fileID: 8593337002908477719, guid: e86300a8a2d930b4596ecbe1b44eaebe, type: 3}
       propertyPath: volumeTrigger
       value: 
-      objectReference: {fileID: 373498734}
+      objectReference: {fileID: 1723892306}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2797,10 +2838,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Longshipwithdualgun
       objectReference: {fileID: 0}
+    - target: {fileID: 3656557642100999695, guid: f3202556a9b1a21489cdc6238bf9abb3, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 1723892306}
     - target: {fileID: 4667094526761064280, guid: f3202556a9b1a21489cdc6238bf9abb3, type: 3}
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 373498734}
+    - target: {fileID: 6720682261597450159, guid: f3202556a9b1a21489cdc6238bf9abb3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
